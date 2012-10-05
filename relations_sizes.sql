@@ -1,0 +1,1 @@
+SELECT c.relname AS table_name, pg_size_pretty(pg_relation_size(c.oid)) AS table_sz,  pg_size_pretty(pg_total_relation_size(c.oid)) AS total_sz  FROM pg_class c  JOIN pg_stat_user_tables t using(relname) where t.schemaname = 'public' ORDER BY  pg_relation_size(c.oid) DESC;

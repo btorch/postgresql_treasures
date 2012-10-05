@@ -1,0 +1,1 @@
+SELECT c.relname AS index_name, pg_size_pretty(pg_relation_size(c.oid)) AS index_sz  FROM pg_class c LEFT JOIN pg_namespace n ON n.oid = c.relnamespace WHERE n.nspname = 'public' and c.relhasindex = 'f' order by pg_relation_size(c.oid) desc;
